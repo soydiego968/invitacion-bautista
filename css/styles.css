@@ -1,0 +1,487 @@
+/* ==================================================
+   RESET
+================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================================================
+   BODY
+================================================== */
+body {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("../img/fondo-pista.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.25); /* MÁS claro */
+    z-index: -1;
+}
+
+
+/* ==================================================
+   HERO / ENCABEZADO CON IMAGEN
+================================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    max-height: 320px;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    display: block;
+}
+
+.hero-texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.55);
+    padding: 18px 28px;
+    border-radius: 20px;
+    border: 3px solid #ffcc00;
+    text-align: center;
+}
+
+.hero-texto h1 {
+    color: #ffcc00;
+    font-size: 34px;
+    letter-spacing: 2px;
+}
+
+.hero-texto h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-top: 6px;
+}
+
+/* ==================================================
+   PISTA DE CARRERAS
+================================================== */
+.pista {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 20px;
+}
+
+/* ==================================================
+   CARRIL
+================================================== */
+.carril {
+    position: relative;
+    height: 120px;
+    background: linear-gradient(180deg, #444, #222);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.35);
+    border: 2px dashed #ffcc00;
+}
+
+/* ==================================================
+   AUTO FÓRMULA 1 (CSS)
+================================================== */
+.auto {
+    position: absolute;
+    left: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: correr 4s linear infinite;
+}
+
+/* Cuerpo */
+.cuerpo-f1 {
+    width: 110px;
+    height: 18px;
+    background: red;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 20px;
+}
+
+/* Nariz */
+.nariz {
+    width: 30px;
+    height: 10px;
+    background: red;
+    position: absolute;
+    right: -25px;
+    top: 4px;
+    border-radius: 5px;
+}
+
+/* Alerón */
+.aleron-trasero {
+    width: 12px;
+    height: 28px;
+    background: darkred;
+    position: absolute;
+    left: 10px;
+    top: -5px;
+    border-radius: 4px;
+}
+
+/* Ruedas */
+.rueda {
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    animation: girar 0.5s linear infinite;
+}
+
+.rueda-trasera {
+    left: 15px;
+    bottom: -10px;
+}
+
+.rueda-delantera {
+    right: 10px;
+    bottom: -10px;
+}
+
+/* Sombra */
+.auto::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 6px;
+    background: rgba(0,0,0,0.35);
+    bottom: -16px;
+    left: 20px;
+    filter: blur(4px);
+}
+
+/* ==================================================
+   VELOCIDADES
+================================================== */
+.auto.rapido { animation-duration: 2.5s; }
+.auto.medio  { animation-duration: 4s; }
+.auto.lento  { animation-duration: 6s; }
+
+/* ==================================================
+   INFO DEL CARRIL
+================================================== */
+.info {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffeb3b;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+/* ==================================================
+   BOTÓN AUDIO (PLAY / MUTE)
+================================================== */
+.btn-audio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: #ffcc00;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    z-index: 1000;
+}
+
+.btn-audio:active {
+    transform: scale(0.95);
+}
+
+/* ==================================================
+   MENSAJE FINAL
+================================================== */
+.mensaje {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.mensaje-animado {
+    font-size: 22px;
+    font-weight: bold;
+    background: #ff5722;
+    color: #fff;
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 30px;
+    animation: aparecer 1.5s ease-out, latir 2s infinite;
+}
+
+/* ==================================================
+   GPS FÓRMULA 1
+================================================== */
+.gps-f1 {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.gps-panel {
+    background: linear-gradient(135deg, #111, #333);
+    color: #fff;
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    width: 90%;
+    max-width: 360px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    border: 3px solid #ffcc00;
+}
+
+.gps-panel h3 {
+    color: #ffcc00;
+    letter-spacing: 2px;
+}
+
+.btn-f1 {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-f1:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(229,57,53,0.7);
+}
+
+/* ==================================================
+   AUTO GPS
+================================================== */
+.auto-gps {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    margin: 15px 0;
+    position: relative;
+}
+
+.f1-car {
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 20px;
+    background: red;
+    border-radius: 6px;
+}
+
+.f1-car::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 14px;
+    background: black;
+    top: -8px;
+    left: 20px;
+    border-radius: 5px;
+}
+
+.f1-car::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 6px;
+    background: black;
+    right: -10px;
+    top: 7px;
+}
+
+/* ==================================================
+   ANIMACIONES
+================================================== */
+@keyframes correr {
+    from { left: -120px; }
+    to   { left: 100%; }
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes latir {
+    0%,100% { transform: scale(1); }
+    50%     { transform: scale(1.1); }
+}
+
+/* Arranque GPS */
+.arrancar {
+    animation: arrancar 1.5s cubic-bezier(.25,.8,.25,1) forwards;
+}
+
+@keyframes arrancar {
+    0%   { left: -80px; }
+    30%  { left: 30%; }
+    100% { left: 120%; }
+}
+
+
+/* =========================
+   RESPONSIVE CELULAR
+========================= */
+@media (max-width: 768px) {
+
+    /* Encabezado */
+    .encabezado h1 {
+        font-size: 26px;
+    }
+
+    .encabezado h2 {
+        font-size: 18px;
+    }
+
+    /* Imagen superior */
+    .contenedor-imagen img {
+        max-width: 90%;
+    }
+
+    /* Carriles */
+    .carril {
+        height: 90px;
+        border-radius: 12px;
+    }
+
+    /* Autos */
+    .auto {
+        transform: translateY(-50%) scale(0.8);
+    }
+
+    /* Info del carril */
+    .info {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    /* Mensaje final */
+    .mensaje-animado {
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+
+    /* GPS */
+    .gps-panel {
+        padding: 20px;
+    }
+
+    .btn-f1 {
+        font-size: 15px;
+        padding: 14px;
+    }
+
+    /* Botón audio */
+    .btn-audio {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+
+/* =========================
+   BOTÓN CONFIRMAR ASISTENCIA F1
+========================= */
+.btn-f1-confirmar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin: 45px auto;
+    width: 90%;
+    max-width: 360px;
+
+    background: linear-gradient(135deg, #e10600, #8b0000);
+    color: #fff;
+    padding: 18px 22px;
+    border-radius: 14px;
+
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    border: 3px solid #ffcc00;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+
+    position: relative;
+    overflow: hidden;
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Línea tipo pista */
+.btn-f1-confirmar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.15),
+        rgba(255,255,255,0.15) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+}
+
+/* Hover */
+.btn-f1-confirmar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(225,6,0,0.7);
+}
+
+/* Click */
+.btn-f1-confirmar:active {
+    transform: scale(0.97);
+}
+
+@keyframes semaforo {
+    0%,100% { box-shadow: 0 0 0 rgba(255,204,0,0); }
+    50%     { box-shadow: 0 0 20px rgba(255,204,0,0.9); }
+}
+
+.btn-f1-confirmar {
+    animation: semaforo 2s infinite;
+}
+
+.btn-f1-confirmar {
+    background: red !important;
+    color: yellow !important;
+    border: 5px solid black !important;
+}
+
+
